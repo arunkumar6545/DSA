@@ -1,4 +1,3 @@
-package com.ca.wcc.editor.server.util;
 
 public class MinSubarrayContainingMinAndMaxValue {
     public static void main(String[] args) {
