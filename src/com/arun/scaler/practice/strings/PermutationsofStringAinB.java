@@ -1,0 +1,106 @@
+import java.util.*;
+
+public class PermutationsofStringAinB {
+    public static void main(String[] args) {
+        System.out.println(solve("abc","abcbacabc"));
+    }
+    /*
+    Permutations of A in B
+Problem Description
+
+You are given two strings A and B of size N and M respectively.
+
+You have to find the count of all permutations of A present in B as a substring. You can assume a string will have only lowercase letters.
+
+
+
+Problem Constraints
+1 <= N < M <= 105
+
+
+
+Input Format
+Given two argument, A and B of type String.
+
+
+
+Output Format
+Return a single Integer, i.e number of permutations of A present in B as a substring.
+
+
+
+Example Input
+Input 1:
+
+ A = "abc"
+ B = "abcbacabc"
+Input 2:
+
+ A = "aca"
+ B = "acaa"
+
+
+Example Output
+Output 1:
+
+ 5
+Output 2:
+
+ 2
+
+
+Example Explanation
+Explanation 1:
+
+ Permutations of A that are present in B as substring are:
+    1. abc
+    2. cba
+    3. bac
+    4. cab
+    5. abc
+    So ans is 5.
+Explanation 2:
+
+ Permutations of A that are present in B as substring are:
+    1. aca
+    2. caa
+  =============================================================
+  intution:
+  find freq array of string A and String B until length of A;
+  find if its anagram them count is 1 else 0
+  loop till len(b) - len(a) +1
+  at i-th position you dont need freq of [i-1] char and need to inc freq of [i + a.len -1] char
+  again if anagram then inc count else continue;
+
+  permutation is nothing but all anagrams possible
+     */
+    public static int solve(String A, String B) {
+        int ana[] = new int[26];
+        int bna[] = new int[26];
+
+        for(int i = 0;i<A.length();i++){
+            ana[A.charAt(i)-'a']++;
+            bna[B.charAt(i)-'a']++;
+        }
+        int count = isAnagram(ana,bna)? 1: 0;
+
+        for(int i = 1;i<B.length() - A.length() + 1;i++){
+            bna[B.charAt(i-1) - 'a']--;
+            bna[B.charAt(i + A.length() -1) - 'a']++;
+            if(isAnagram(ana,bna))
+                count++;
+        }
+
+        return count;
+
+
+    }
+
+    public static boolean isAnagram(int ana[], int bna[]){
+        for(int i = 0;i<ana.length;i++){
+            if(ana[i] != bna[i])
+                return false;
+        }
+        return true;
+    }
+}
