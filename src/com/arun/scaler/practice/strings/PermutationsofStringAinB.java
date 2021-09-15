@@ -83,7 +83,22 @@ Explanation 2:
             bna[B.charAt(i)-'a']++;
         }
         int count = isAnagram(ana,bna)? 1: 0;
+        //IN THIS LOOP EVERYITERATION INORDER TO FIND IF STRING ANAGRAM
+        //REMOVE THE FIRST CHAR AND ADD NEXT AVAILABLE CHAR
+        //EG: INITIALLY IN STRING ABCADEB   IF SEARCHING FOR STRING BCA
+        /*
+        LOOP 0: WE ARE HAVE FREQ ARRAY OF A AND FOR B TILL LENGTH OF A JUST CHECK IF THEY ARE ANAGRAM
+        SO START BELOW LOOP FROM 1;
+        LOOP 1: NOW DISCARD CHAR AT 0 AND INCLUDE CHAR AT 3 WHICH IS 1,2,3
+                NOW JUST DECREMENT COUNT OF CHAR 0
+                AND INCREMENT FOR COUNT OF CHAR 3
 
+         LOOP 2: NOW DISCARD CHAR 1 AND INCLUDE CHAR AT 4 WHICH IS 2,3,4
+                NOW JUST DECREMENT COUNT OF CHAR AT 1
+                AND INCREMENT COUNT OF CHAR AT 4
+
+                CONTINUE;
+              */
         for(int i = 1;i<B.length() - A.length() + 1;i++){
             bna[B.charAt(i-1) - 'a']--;
             bna[B.charAt(i + A.length() -1) - 'a']++;
