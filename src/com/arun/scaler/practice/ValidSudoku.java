@@ -11,6 +11,12 @@ public class ValidSudoku {
                 "...419..5",
                 "....8..79"}));
     }
+
+    /*
+    CHECK IF ALL THE ROW ARE UNIQUE
+    CHECK IF ALL THE COLUMNS ARE UNIQUE
+    CHECK IF ALL THE 3*3 MATRICES ARE UNIQUE
+     */
     public static int validSudoku(String[] A){
         boolean r[] = new boolean[9];
 
