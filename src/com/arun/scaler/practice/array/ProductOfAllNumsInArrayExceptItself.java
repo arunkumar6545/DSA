@@ -32,6 +32,9 @@ position i product of all left nums is in postion i -1;
 for getting right product have a variable right product and keep multiplying to it from
 r to l and multiply it with current position and you get solution.
      */
+
+
+    //inplace array logic for product
     public static int[] solution1(int[] A) {
         int product  = 1;
         for(int i = 0;i<A.length;i++){
