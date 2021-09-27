@@ -1,0 +1,149 @@
+// write your code here...
+
+/*
+Given an Int - Binary format - count the number of 1's present
+10 -> 1010 -> 2
+n -> ->
+
+0 < N <= 100000
+*/
+
+
+public String binary(int a){
+    
+    String result = "";
+    int count = 0;
+    int remainder = 0;
+    
+    while(a>0){
+        remainder = a % 2;
+        if(remainder == 1) count++;
+        result = String.valueOf(remainder) + result;
+        a /= 2;
+    }
+    System.out.println(count);
+    
+    return result;
+}
+
+
+run time -> log(n)
+space time -> 
+
+/*
+Box candies - N
+
+Lily - older N
+Susy - 
+
+Lily -> N/2
+Susy - N/2
+
+N is even
+0 < N <= 100000
+
+N = (1, 1, 1, 1, 1, 1, 1, 2, 3, 4)
+Lily = (1, 2, 3, 4, 1)
+Susy - (1, 1, 1, 1, 1)
+*/
+
+
+Algo -
+1. construct hashmap<integer,Integer> with count of each type of candy
+2. for Lily since she can pick only N / 2 
+3. first loop till N / 2 times and keep decrementing 1 for every candy in map
+4. remaining just go to susy
+
+
+//candies[]
+{
+    Map<Integer,Integer> candyCount = new HashMap<>();
+    for(int i = 0;i<candies.length;i++){
+        if(candyCount.containsKey(candies[i])){
+            map.put(candies[i], ++map.get(candies[i]));
+        }else map.put(candies[i], 1);
+    }
+    
+    int i = 0
+    while(i < candies.length /2){
+        for(Entry : candycount){
+            if(map.get(entry.key) != 0){
+                map.put(entry.key, --map.get(entry.key));
+                i++;
+            }
+            
+        }
+    }
+}
+
+{
+    Set<Integer> uniqueCandies = new HashSet<>();
+    
+    for(int i = 0;i<candies.length && uniqueCandies.length() <= candies.length()/2 ;i++){
+        uniqueCandies.add(candies[i]);
+    }
+    
+}
+
+
+
+O(n) -> 
+Loop 1 -> O(n) + 
+Loop 2 -> O(n/2) + O(n)
+
+-----------------
+Hashmap -> unique, count
+
+
+
+---------------
+IRCTC -> website
+
+Scope:
+1. Search -> Primary 
+2. Ticket Booking -> Primary Goal
+3. Cancellation -> Primary
+
+Entity:
+1. Train -> 
+Engine -> Bogies -> seats
+
+
+Engine:
+Engine id, Engine Type
+
+Bogey:
+Bogey id, Type of Bogey, Seats[seatids]
+
+Seat:
+Seat ID, Seat Type (L, U, M, SU, SL), Reserved
+
+Train:
+Train Number, Bogey Map<id, position>, Engine ID
+
+Station:
+Station ID, Station Name, Latitude, Longitude
+
+Route -> 
+Route ID, From Station, To Station, 
+
+Schedule ->
+Schedule ID, Route ID, Train ID, Departure, Arrival
+------------
+
+Service:
+search(from station, to station, train number(optional), from date, reservation Type(optional, default general))
+
+    search->
+        1-> Fetch Route id -> Check if route exists between from station and to station
+        2-> List of Schedule(route_id)
+            Train ID, Departure, Arrival
+        3-> Availability(train_id)
+            Type of Bogey (AC, SL) -> Number of Seats -> Number of Available Seats
+            
+
+            
+            
+        
+        
+
